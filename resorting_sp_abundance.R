@@ -1,7 +1,7 @@
 # New script for testing thresholds of abundance for species. 
 
 # after combining the abundance of birds in each timepoint, 
-# find a abundacne threshold that is meaningful. 
+# find a abundance threshold that is meaningful. 
 # (1 individual is not really meaningful, it could be there by accident)
 
 
