@@ -39,7 +39,14 @@ for (i in  result.list.names) {
 rownames(w_results) <- 1:220
 
 # check how well the parameter converged
-filter(w_results, rhat <= 1.05) # %>% length()
-subset(w_results, rhat <= 1.05)
+w_results_f <- filter(w_results, rhat <= 1.05) # %>% length() #147 sp failed convergence and chain attempts
+# subset(w_results, rhat <= 1.05)  %>% length()
+
+# check that the effective sample size is big enough
+w_results_f <- filter(w_results_f, ess_bulk >= 400) #6 species dont cut it 
+
+# 67 species remaining from 220! are they related somehow ???
+success_AOUs <- w_results_f$AOU
+
 mcmc_dens_overlay(list.of.draws$testdraws_1430) # have a look....
 mcmc_dens_overlay(list.of.draws$testdraws_6090)
