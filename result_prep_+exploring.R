@@ -123,6 +123,7 @@ trait_taxa_df$breeding_system <- as.factor(trait_taxa_df$breeding_system)
 trait_taxa_df$ORDER <- as.factor(trait_taxa_df$ORDER)
 trait_taxa_df$Family <- as.factor(trait_taxa_df$Family)
 trait_taxa_df$Genus <- as.factor(trait_taxa_df$Genus)
+trait_taxa_df$AOU <- as.character(trait_taxa_df$AOU)
 
 
 # correct the NAs in territoriality 
@@ -147,8 +148,23 @@ trait_taxa_df$territoriality <- TrueTerritoriality$territoriality
 ### merge the data with the list of successful aous 67 sp. 
 
 
-w_TT_df <- merge(w_results, success_AOUs, by.x = "AOU")
-w_TT_df_sss <- merge(w_TT_df, trait_taxa_df, by.y = "AOU" )
+w_TT_df_suc <- merge(w_results, success_AOUs, by.x = "AOU")
+w_TT_df <- merge(w_TT_df_suc, trait_taxa_df, by.y = "AOU" )
+w_TT_df <- merge(w_draws, w_TT_df, by.y = "AOU" )
+
+
+# w_TT_df$AOU
+# success_AOUs$AOU
+# 
+# length(setdiff(trait_taxa_df$AOU, success_AOUs$AOU)) - 406
+# 
+# setdiff(trait_taxa_df$AOU, success_AOUs$AOU) %>% length()
+# 
+# 
+# setdiff(w_TT_df$AOU, w_TT_df_sss$AOU)
+# 
+# unique(success_AOUs$AOU) %>% length()
+
 
 # model selection not possible with haphazard NAs through out trait data
 
@@ -157,9 +173,9 @@ sum(is.na(w_TT_df$territoriality))
 sum(is.na(w_TT_df$maximum_lifespan_years))
 
 ### REMOVE any remaining NAs
-w_TT_df <- na.omit(w_TT_df)
+# w_TT_df <- na.omit(w_TT_df)
 # saveRDS(w_TT_df, file = "~/Leo/Data/w_draws_TT_data/w_TT_df_302sp_6SEP.RDS")
-# saveRDS(w_TT_df, file = "~/Leo/Data/w_draws_TT_data/w_TT_df_299sp_6SEP_noNA.RDS")
+saveRDS(w_TT_df, file = "C:/beyond_thesis/PUBLICATION/draws_traits_data/from_a15_s30/w_TT_df_59sp_3JAN.RDS")
 
 # w_TT_df$species <- as.factor(w_TT_df$species)
 
