@@ -132,21 +132,23 @@ trait_taxa_df$territoriality <- TrueTerritoriality$territoriality
 
 
 # merge with legacy of one lct and remove all the other species from the list
-
-w_TT_df <- merge(w_draws, trait_taxa_df, by.x = "AOU")
-
-w_TT_df <- merge(w_TT_df, w_results, by.x = "AOU")
+# 
+# w_TT_df <- merge(w_draws, trait_taxa_df, by.x = "AOU")
+# 
+# w_TT_df <- merge(w_TT_df, w_results, by.x = "AOU")
 
 # save(w_TT_df, file = "~/Leo/Data/w_draws_TT_data/w_TT_df_307sp_1SEP_TerrNAs.RDS")
 
-########################### GET THE DF OF Ws AND TRAIT INFO HERE
-load(file = "~/Leo/Data/w_draws_TT_data/w_TT_df_307sp_1SEP_TerrNAs.RDS")
+# ########################### GET THE DF OF Ws AND TRAIT INFO HERE
+# load(file = "~/Leo/Data/w_draws_TT_data/w_TT_df_307sp_1SEP_TerrNAs.RDS")
 
 ##########################
 
 ### merge the data with the list of successful aous 67 sp. 
 
-w_TT_df_sss <- merge(w_TT_df, success_AOUs, by.x = "AOU" )
+
+w_TT_df <- merge(w_results, success_AOUs, by.x = "AOU")
+w_TT_df_sss <- merge(w_TT_df, trait_taxa_df, by.y = "AOU" )
 
 # model selection not possible with haphazard NAs through out trait data
 
