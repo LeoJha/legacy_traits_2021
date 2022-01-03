@@ -13,8 +13,8 @@ library(bayesplot); library(ggplot2); library(rstanarm)
 
 # source the w coeffients from the complete results list created in the loop.
 # the results lists for 307 species (threshold = min 30 segments)
-load(file = "C:/beyond_thesis/PUBLICATION/stan_results/test_run_11NOV/list_of_draws_a15_s30.RDS")
-load(file = "C:/beyond_thesis/PUBLICATION/stan_results/test_run_11NOV/list_of_results_a15_s30.RDS")
+load(file = "C:/beyond_thesis/PUBLICATION/stan_results/test_run_11NOV/list_of_draws_a5_s30.RDS")
+load(file = "C:/beyond_thesis/PUBLICATION/stan_results/test_run_11NOV/list_of_results_a5_s30.RDS")
 
 ##################################
 # look at the uniformity of the w draws of the results
@@ -177,7 +177,5 @@ sum(is.na(w_TT_df$maximum_lifespan_years))
 # saveRDS(w_TT_df, file = "~/Leo/Data/w_draws_TT_data/w_TT_df_302sp_6SEP.RDS")
 saveRDS(w_TT_df, file = "C:/beyond_thesis/PUBLICATION/draws_traits_data/from_a15_s30/w_TT_df_59sp_3JAN.RDS")
 
-# w_TT_df$species <- as.factor(w_TT_df$species)
-
-w_TT_df <- readRDS(file = "~/Leo/Data/w_draws_TT_data/w_TT_df_299sp_6SEP_noNA.RDS")
+# w_TT_df <- readRDS(file = "~/Leo/Data/w_draws_TT_data/w_TT_df_299sp_6SEP_noNA.RDS")
 
