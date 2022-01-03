@@ -1,10 +1,10 @@
 
-w_TT_df <- readRDS(file = "~/Leo/Data/w_draws_TT_data/w_TT_df_299sp_6SEP_noNA.RDS")
+w_TT_df <- readRDS(file = "C:/beyond_thesis/PUBLICATION/draws_traits_data/from_a15_s30/w_TT_df_59sp_3JAN.RDS")
 
 
 
 ########### exploratory ggplot plotting of the raw data ######## 
-
+library(ggplot2)
 
 
 ############## LIFESPAN
